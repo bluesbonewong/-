@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ch">
+<head>
+	<meta charset="utf-8">
+	<title>使用JSONP跨域</title>
+</head>
+<body>
+<h1>JSONP实现跨域</h1>
+<script>
+	// JSONP
+	function addScript() {
+		var script = document.createElement('script')
+		script.src = 'http://justfun:8080/getdata?callback=showData'
+		document.head.appendChild(script)
+		// 添加标签后会立即执行，且在数据到来之前，会阻断其它加载
+		document.head.removeChild(script)
+		// 移除也没关系，因为数据此时已经拿到
+	}
+
+	function showData(data) {
+		console.log(data)
+	}
+
+	addScript()
+	showData()
+</script>
+</body>
+</html>
