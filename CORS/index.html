@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="ch">
+<head>
+	<meta charset="utf-8">
+	<title>使用CORS跨域</title>
+</head>
+<body>
+<h1>CORS实现跨域</h1>
+<script>
+
+	var xhr = new XMLHttpRequest()
+	xhr.open('GET', 'http://127.0.0.1:8080/getdata', true)
+	xhr.addEventListener('readystatechange', function () {
+		console.log(xhr.responseText)
+	})
+	xhr.send()
+
+</script>
+</body>
+</html>
